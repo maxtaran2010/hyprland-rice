@@ -8,17 +8,17 @@ Catppuccin hyprland theme by maxtaran2010 (aka tmasik.t)
 ### Other things
 `mpd` (for music) `hyprctl`
 ## Keybindings
-SUPER + {1-10} - workspace {1-10}
-SUPER + SHIFT + {1-10} - move window to workspace {1-10}
-SUPER + PRINT - screenshot (region)
-SUPER + Enter - terminal
-SUPER + C - kill window
-SUPER + SHIFT + q - exit HyprLand
-SUPER + S - toggle window floating
-SUPER + T - toggle window pseudo tiling
-SUPER + J  - toggle split mode
-SUPER + D - wofi
-SUPER + scroll - switch between workspaces
+SUPER + {1-10} - workspace {1-10} <br>
+SUPER + SHIFT + {1-10} - move window to workspace {1-10} <br>
+SUPER + PRINT - screenshot (region) <br>
+SUPER + Enter - terminal <br>
+SUPER + C - kill window <br>
+SUPER + SHIFT + q - exit HyprLand <br>
+SUPER + S - toggle window floating <br>
+SUPER + T - toggle window pseudo tiling <br>
+SUPER + J  - toggle split mode <br>
+SUPER + D - wofi <br>
+SUPER + scroll - switch between workspaces <br>
 
 ## Pics
 ![Screenshot](2023-06-29-162726_hyprshot.png)
