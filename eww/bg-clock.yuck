@@ -1,0 +1,10 @@
+(defwindow clock
+	:monitor 0
+	:stacking "bg"
+	:geometry (geometry :x "0%"
+											:y "0%"
+											:width "29%"
+											:height "18%"
+											:anchor "center"
+	)
+time)

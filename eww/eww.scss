@@ -1,0 +1,91 @@
+//@import url("https://fonts.googleapis.com/css?family=Belanosima");
+
+.bar, .powermenu {
+	background-color: rgba(#11111b, 1.0);
+}
+.clock {
+	background-color: rgba(#11111b, 0.8);
+}
+.arch-logo {
+	padding-left: 15px;
+	padding-right: 20px;
+	background-color: #74c7ec;
+	color: #11111b;
+	font-size: 19px;
+}
+.box {
+	margin: 5px;
+	border-radius: 10px;
+}
+.right {
+	padding-right: 40px;
+}
+.workspaces {
+	font-size: 17px;
+	background-color: #1e1e2e;
+}
+
+button {
+	padding-left: 10px;
+	padding-right: 15px;
+	background-color: rgba(#ffffff, 0.0);
+}
+
+.clock {
+	border-radius: 7px;
+	font-size: 200px;
+	color: #cdd6f4;
+	font-family: Belanosima;
+	font-weight: bold;
+	padding: 40px;
+}
+
+.bar, .powermenu{
+	font-family: Montserrat;
+	font-weight: bold;
+}
+
+.music, .time {
+	background-color: #1e1e2e;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.time {
+	background-color: #ca9ee6;
+}
+.powermenu {
+	font-size: 70px;
+	border-radius: 7px;
+}
+.shutdown, .reboot, .logout {
+	padding-left: 18px;
+	padding-right: 29px;
+}
+.shutdown {
+	background-color: #f38ba8;
+}
+.reboot {
+	background-color: #a6e3a1;
+}
+.logout {
+	background-color: #74c7ec;
+}
+.power {
+	background-color: #e78284;
+	padding-left: 14px;
+	padding-right: 17px;
+	font-size: 17px;
+}
+.battery {
+	background-color: #a6d189;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.volume {
+	background-color: #8caaee;
+	padding-right: 15px;
+	padding-left: 12px;
+	}
+

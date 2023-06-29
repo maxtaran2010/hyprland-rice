@@ -1,0 +1,3 @@
+(include "./bar.yuck")
+(include "./powermenu.yuck")
+(include "./bg-clock.yuck")

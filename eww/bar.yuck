@@ -1,0 +1,73 @@
+(defwidget bar []
+	(centerbox :orientation "h"
+		(box :class "left-content" :orienataion "h" :halign "start" :space-evenly false
+			(box :class "arch-logo box" :orientation "h"
+				""
+			)
+			(box :class "workspaces box" :orientation "h"
+				(workspaces)
+			)
+		)
+		(box :orientation "h" :space-evenly false
+			(box :class "music box" :orientation "h" :space-evenly false
+				artist
+				"- "
+				song
+			)
+		)
+		(box :orientation "h" :halign "end" :space-evenly false
+			(box :orientation "h" :class "box volume"
+				"󰕾"
+				volume
+			)
+			(box :orientation "h" :class "box battery" :space-evenly false
+				"󰁹 "
+				percentage
+			)
+			(box :orientation "h" :class "box time"
+				time
+			)
+			(button :onclick `if [[ $(eww windows) == *"*powermenu"* ]]; then eww close powermenu; else eww open powermenu; fi` :class "box power"
+				""
+			)
+		)
+	)
+)
+
+(defpoll time :interval "1m" "date +'%H:%M'")
+(defpoll artist :interval "1s" "./scripts/music --artist")
+(defpoll song :interval "1s" "./scripts/music --song")
+(defpoll percentage :interval "5m" `upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep "percentage:" | awk '{print $2}'`)
+(defpoll volume :interval "1s" `./scripts/getvol`)
+
+(defwidget workspaces []
+	(box :orientation "h"
+		(button :onclick "hyprctl dispatch workspace 1" "")
+		(button :onclick "hyprctl dispatch workspace 2" "󰈹")
+		(button :onclick "hyprctl dispatch workspace 3" "󰗃")
+		(button :onclick "hyprctl dispatch workspace 4" "")
+		(button :onclick "hyprctl dispatch workspace 5" "󰙯")
+		(button :onclick "hyprctl dispatch workspace 6" "")
+	)
+)
+
+(defwindow bar
+	:monitor 0
+	:exclusive true
+	:stacking "fg"
+	:geometry (geometry :x "0%"
+											:y "0%"
+											:width "100%"
+											:height "50px"
+											:anchor "top center")
+	(bar))
+
+(defwindow calendar
+	:monitor 0
+	:geometry (geometry :x "60px"
+											:y "0%"
+											:width "20%"
+											:height "15%"
+											:anchor "top center"
+	)
+(calendar))

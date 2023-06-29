@@ -1,0 +1,11 @@
+#!/bin/bash
+
+spaces (){
+	WORKSPACE_WINDOWS=$(hyprctl workspaces -j | jq 'map({key: .id | tostring, value: .windows}) | from_entries')
+	echo "t 1\nf 2\ny 3\nt 4\nd 5\n. 6\n. 7\n. 8\n. 9\n. 10\n" | jq --argjson windows "${WORKSPACE_WINDOWS}" --slurp -Mc 'map(tostring) | map({name: "split(".")[0]", id: split(".")[1], windows: "."})'
+}
+
+spaces
+socat -u UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock - | while read -r line; do
+	spaces
+done
