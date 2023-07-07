@@ -21,6 +21,6 @@ SUPER + D - wofi <br>
 SUPER + scroll - switch between workspaces <br>
 
 ## Pics
-![Screenshot](2023-06-29-162726_hyprshot.png)
-![Screenshot](2023-06-29-162756_hyprshot.png)
-![Screenshot](2023-06-29-162733_hyprshot.png)
+![Screenshot](2023-07-07-193611_hyprshot.png)
+![Screenshot](2023-07-07-193628_hyprshot.png)
+![Screenshot](2023-07-07-193644_hyprshot.png)
