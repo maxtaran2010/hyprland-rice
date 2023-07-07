@@ -1,0 +1,116 @@
+.card {
+  all: unset;
+  border-radius: 7px;
+  background-color: #11111b; 	
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  color: #cdd6f4;
+}
+.dashboard {
+  background-color: rgba(#ffffff, 0.0);
+  font-family: Montserrat;
+  font-weight: bold;
+
+}
+.clock2 { 
+ padding: 5px 50px 5px 50px;
+}
+.applauncher {
+  padding: 8px;
+}
+.applauncher > button {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 5px;
+  padding-right: 0px;
+  margin-left: 5px;
+  font-size: 45px;
+  font-family: "Font Awesome 6 Free";
+  color: #cdd6f4;
+}
+.music-song-name {
+  margin-top: 15px;
+  font-size: 25px;
+  font-family: Belanosima; 
+}
+.music-artist {
+  font-size: 20px;
+  font-family: Belanosima;
+  font-weight: normal;
+  color: #a6adc8;
+}
+.music3 > button {
+  all: unset;
+  color: #cdd6f4;
+  font-size: 25px;
+  font-family: "Font Awesome 6 Free"
+}
+.music3 {
+  margin-top: 30px;
+}
+
+.thumbnail {
+  all:unset;
+  margin: 20px;
+  padding-top: 200px;
+  padding-left: 200px;
+  background-size: 200px;
+  border-radius: 15px;
+}
+.buttons {
+  font-family: "Font Awesome 6 Free";
+  font-size: 45px;
+}
+.buttons > button {
+  color: #cdd6f4;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  margin: 10px;
+  background-color: #181825;
+}
+.cpu3 {
+  color: #89b4fa;
+}
+.memory3 {
+  color: #94e2d5 	
+}
+.uptime3 {
+  color: #fab387
+}
+.volume3 {
+  color: #a6e3a1
+}
+.brightness3 {
+  color: #f9e2af
+}
+.battery3 {
+  color: #f38ba8
+}
+.label {
+  padding: 35px;
+}
+circular-progress {
+  background-color: #181825;
+  font-size: 45px;
+  padding: 2.5rem;
+  font-family: "Font Awesome 6 Free";
+}
+.time2 {
+  font-size: 180px;
+  font-family: Belanosima;
+}
+.date {
+  color: #bac2de;
+  font-family: Belanosima;
+  font-size: 30px;
+  font-weight: bold;
+}
+.weather2 {
+  font-family: Belanosima;
+  font-size: 50px;
+}
+.weather1 {
+  padding-left: 0px;
+  padding-right: 15px;
+}

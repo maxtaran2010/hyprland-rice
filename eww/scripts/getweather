@@ -1,0 +1,4 @@
+#!/bin/bash
+
+curl -s "https://api.openweathermap.org/data/2.5/weather?q=$(curl -s ipinfo.io | jq -r .city)&appid=f1701e3880b7d049420daf94dc80af76"
+#echo '{"coord":{"lon":37.7583,"lat":55.4422},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01d"}],"base":"stations","main":{"temp":296.23,"feels_like":296.11,"temp_min":296.18,"temp_max":296.83,"pressure":1018,"humidity":58},"visibility":10000,"wind":{"speed":3,"deg":240},"clouds":{"all":0},"dt":1688577946,"sys":{"type":1,"id":9021,"country":"RU","sunrise":1688518469,"sunset":1688580724},"timezone":10800,"id":565381,"name":"Domodedovo","cod":200}'

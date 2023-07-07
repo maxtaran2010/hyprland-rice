@@ -10,43 +10,82 @@
 		)
 		(box :orientation "h" :space-evenly false
 			(box :class "music box" :orientation "h" :space-evenly false
-				artist
-				"- "
-				song
+                                (button :onclick "~/.config/eww/scripts/music --toggle" :class "fontawesome side-buttons2 left-side-button" (box 
+                                                                                    music_status
+                                                                                  ))
+				(button :onclick "./scripts/music --prev" :class "side-buttons bigger-font fontawesome" "")
+                                (box :class "music-box" :space-evenly false
+				  artist
+				  "- "
+				  song
+                                )
+				(button :onclick "./scripts/music --next" :class "side-buttons bigger-font fontawesome" "")
+                                (button :onclick "hyprctl dispatch workspace 6 && kitty ncmpcpp &" :class "side-buttons2 fontawesome right-side-button" '')
+
 			)
 		)
-		(box :orientation "h" :halign "end" :space-evenly false
-			(box :orientation "h" :class "box volume"
-				"󰕾"
-				volume
-			)
+		(box :orientation "h" :halign "end" :space-evenly false 
 			(box :orientation "h" :class "box battery" :space-evenly false
-				"󰁹 "
+				(box :class "fontawesome" " ")
 				percentage
+                                "%"
 			)
-			(box :orientation "h" :class "box time"
-				time
+			(box :orientation "h" :class "box time" :space-evenly false
+			     (box :class "fontawesome" " ")	
+                            time
 			)
-			(button :onclick `if [[ $(eww windows) == *"*powermenu"* ]]; then eww close powermenu; else eww open powermenu; fi` :class "box power"
+(box :onclick `swaync-client -op` :class "box notifications" 
+                        (box :class "fontawesome" " ")
+                        notifications
+                        )
+                        (button :class "box toggledashboard fontawesome" :onclick `if [[ $(eww windows | grep clock) == "*clock" ]]; then eww close clock && eww open dashboard; else eww close dashboard && eww open clock; fi` :style "font-size: 20px" "")
+                       (button :style "all: unset" :onclick `if [[ "$(eww windows | grep volumemenu)" == "*volumemenu" ]]; then eww close volumemenu; else eww open volumemenu; fi
+`
+		  (box :orientation "h" :class "box volume" :space-evenly false
+                      (box :class "fontawesome" " ")
+                      (box :space-evenly "false"
+                      volume
+                      '%')
+                    )
+                  ) 
+			(button :onclick `if [[ $(eww windows) == *"*powermenu"* ]]; then eww close powermenu; else eww open powermenu; fi` :class "box fontawesome power"
 				""
 			)
 		)
 	)
 )
 
-(defpoll time :interval "1m" "date +'%H:%M'")
+(defvar x false)
+(defpoll notifications :interval "1s" `swaync-client -c`)
+(defpoll time :interval "1s" "date +'%d %B, %H:%M'")
 (defpoll artist :interval "1s" "./scripts/music --artist")
 (defpoll song :interval "1s" "./scripts/music --song")
-(defpoll percentage :interval "5m" `upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep "percentage:" | awk '{print $2}'`)
-(defpoll volume :interval "1s" `./scripts/getvol`)
+(defpoll percentage :interval "5m" `echo $(($(upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep "percentage:" | awk '{print $2}' | sed 's/%//g')+1))`)
+(defpoll volume :interval "0.1s" `./scripts/getvol`)
+(defpoll music_status :interval "0.1s" `./scripts/music --status`)
+
+(defwidget volume []
+  (box :orientation "v" :class "volume-menu"
+   (scale  
+                                              :class "volumeslider"
+                                              :value volume
+                                              :orientation "v"
+                                              :flipped true
+                                              :tooltip "${volume}%"
+                                              :min 0
+                                              :max 101
+                                              :onchange "mpc volume {}"
+                        )  
+    )
+  )
 
 (defwidget workspaces []
 	(box :orientation "h"
-		(button :onclick "hyprctl dispatch workspace 1" "")
-		(button :onclick "hyprctl dispatch workspace 2" "󰈹")
-		(button :onclick "hyprctl dispatch workspace 3" "󰗃")
+		(button :onclick "hyprctl dispatch workspace 1" "")
+		(button :onclick "hyprctl dispatch workspace 2" "")
+		(button :onclick "hyprctl dispatch workspace 3" "")
 		(button :onclick "hyprctl dispatch workspace 4" "")
-		(button :onclick "hyprctl dispatch workspace 5" "󰙯")
+		(button :onclick "hyprctl dispatch workspace 5" "")
 		(button :onclick "hyprctl dispatch workspace 6" "")
 	)
 )
@@ -62,12 +101,13 @@
 											:anchor "top center")
 	(bar))
 
-(defwindow calendar
-	:monitor 0
-	:geometry (geometry :x "60px"
-											:y "0%"
-											:width "20%"
-											:height "15%"
-											:anchor "top center"
-	)
-(calendar))
+(defwindow volumemenu
+        :monitor 0
+        :stacking "overlay"
+        :geometry (geometry :x "77px"
+                            :y "5px"
+                            :width "40px"
+                            :height "120px"
+                            :anchor "top right"
+  )
+(volume))

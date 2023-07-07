@@ -1,3 +1,4 @@
 (include "./bar.yuck")
 (include "./powermenu.yuck")
 (include "./bg-clock.yuck")
+(include "./dashboard/eww.yuck")

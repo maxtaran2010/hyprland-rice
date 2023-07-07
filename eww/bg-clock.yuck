@@ -2,9 +2,10 @@
 	:monitor 0
 	:stacking "bg"
 	:geometry (geometry :x "0%"
-											:y "0%"
+											:y "1%"
 											:width "29%"
-											:height "18%"
+											:height "15%"
 											:anchor "center"
 	)
-time)
+time2)
+(defpoll time2 :interval "1m" `date +'%H:%M'`)

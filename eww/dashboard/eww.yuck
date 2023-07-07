@@ -1,0 +1,80 @@
+(defpoll weather :interval "1h" "python ~/.config/eww/scripts/weather.py")
+(defpoll memory :interval "10s" "./scripts/getmem")
+(defpoll uptime :interval "10s" "python ./scripts/uptime.py")
+(defpoll brightness :interval "1s" `echo $(($(brightnessctl g)*100/$(brightnessctl m)))`)
+(defpoll cpu :interval "1s" `grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage}'`)
+(defpoll greeting :interval "1h" `./scripts/greeting`)
+(defwidget stats [name value label]
+  (box :class "card $(name)2" :halgin "center"
+    (circular-progress :value value :start-angle 0 :thickness 12 :class "${name}3"
+     (label :text label
+            :class "label ${name}4"
+            :limit-width 2
+            :show_truncated false
+            :wrap false
+            :angle 0.0)
+    )  
+  )
+)
+(defwidget dashboard []
+  (box :orientation "h" :space-evenly false
+    (box :orientation "v"
+      (box :orientation "h"
+        (stats :name "cpu" :label "" :value cpu)
+        (stats :name "memory" :label "" :value memory)
+        )(box
+        (stats :name "brightness" :label "" :value brightness)
+        (stats :name "battery" :label "" :value percentage)
+        )(box
+        (stats :name "volume" :label "" :value volume)
+        (stats :name "uptime" :label "" :value uptime)
+      )  
+    )
+      (box :orientation "v" :space-evenly false
+       (box :class "card weather"
+          (literal :content weather)
+         )
+       (box :class "card clock2"
+         (box :class "time2" time2)
+       )
+       (box :class "card date" greeting)
+    
+       (box :class "card applauncher"
+          (button :onclick "firefox &" "")
+          (button :onclick "kitty &" "")
+          (button :onclick "firefox --new-window https://youtube.com &" "")
+          (button :onclick "discord &" "")
+          (button :onclick "telegram-desktop &" "")
+         ) 
+       )
+     (box :orientation "v" :space-evenly false
+        (box :class "card buttons"
+          (button :onclick "swaylock &" "")
+          (button :onclick "pkill -U $USER" "")
+          )
+        (box :orientation "v" :class "card music2" :space-evenly false
+          (box :orientation "v" :space-evenly false
+          (box :class "thumbnail" :style "background-image: url('./images/placeholder.svg')")
+          (label :text song :class "music-song-name")
+          (label :text artist :class "music-artist")
+        )
+          (box :orientation "h" :class "music3"
+               (button :onclick "./scripts/music --prev" "")
+               (button :onclick "./scripts/music --toggle" music_status)
+               (button :onclick "./scripts/music --next" "")
+             )
+          )
+     )
+   )
+ 
+)
+
+(defwindow dashboard
+  :monitor 0
+  :stacking "bg"
+  :geometry (geometry
+              :x "0"
+              :y "0"
+              :anchor "center"
+              )
+(dashboard))

@@ -1,0 +1,2 @@
+(defpoll date :interval "10h" "date +'%D'")
+

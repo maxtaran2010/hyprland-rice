@@ -1,8 +1,9 @@
 (defwidget powermenu []
-	(box :orientation "h"
+	(box :orientation "v"
 		(button :onclick "shutdown now" :class "box shutdown" "")
 		(button :onclick "reboot" :class "box reboot" "󰑓")
 		(button :onclick "pkill -U $USER" :class "box logout" "󰍃")
+                (button :onclick "swaylock &" :class "box lock" "")
 	)
 )
 
@@ -11,8 +12,8 @@
 	:stacking "overlay"
 	:geometry (geometry :x '10px'
 											:y '10px'
-											:width "25%"
-											:height "10%"
+											:width "0%"
+											:height "0%"
 											:anchor "top right"
 	)
 (powermenu))

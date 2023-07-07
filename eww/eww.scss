@@ -1,17 +1,61 @@
 //@import url("https://fonts.googleapis.com/css?family=Belanosima");
+@import "./dashboard/eww.scss";
 
-.bar, .powermenu {
+.powermenu {
 	background-color: rgba(#11111b, 1.0);
 }
+.bar {
+	background-color: rgba(#11111b, 1.0)
+}
 .clock {
-	background-color: rgba(#11111b, 0.8);
+	background-color: rgba(#11111b, 0.0);
+}
+.bigger-font {
+	font-size: 20px
+}
+.toggledashboard {
+  background-color: #e5c890;
+}
+.fontawesome {
+  font-family: "Font Awesome 6 Free";
+  font-size: 15px;
+}
+.side-buttons {
+	border-radius: 0px;
+	background-color: #181825;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 23px;
+}
+.notifications {
+	background-color: #ef9f76;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.side-buttons2 {
+	border-radius: 0px;
+	background-color: #1e1e2e;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 .arch-logo {
-	padding-left: 15px;
+	padding-left: 12px;
 	padding-right: 20px;
-	background-color: #74c7ec;
-	color: #11111b;
-	font-size: 19px;
+	background-color: #181825;
+	font-size: 25px;
+	color: #89b4fa;
+}
+.left-side-button {
+	border-radius: 10px 0px 0px 10px;
+	//border-radius-bottom: 10px;
+}
+
+.right-side-button {
+	border-radius: 0px 10px 10px 0px;
 }
 .box {
 	margin: 5px;
@@ -21,16 +65,40 @@
 	padding-right: 40px;
 }
 .workspaces {
-	font-size: 17px;
+	font-family: "Font Awesome 6 Free";
+	font-size: 15px;
 	background-color: #1e1e2e;
 }
 
+scale trough {
+  all: unset;
+  background-color: #ffffff;
+  border-radius: 5px;
+  min-height: 80px;
+  min-width: 12px;
+  margin: 0 3px 0 10px;
+}
+scale trough highlight {
+  all: unset;
+  background-color: #8caaee;
+  border-radius: 5px;
+  border: 2px solid #ffffff;
+}
+scale trough slider {
+  all: unset;
+}
+.volume-menu {
+	padding: 10px 10px 10px 5px;
+}
+.volumemenu {
+	border-radius: 5px;
+	background-color: #8caaee;  
+}
 button {
-	padding-left: 10px;
-	padding-right: 15px;
+	padding-left: 12px;
+	padding-right: 12px;
 	background-color: rgba(#ffffff, 0.0);
 }
-
 .clock {
 	border-radius: 7px;
 	font-size: 200px;
@@ -46,35 +114,53 @@ button {
 }
 
 .music, .time {
-	background-color: #1e1e2e;
+	//font-family: "Font Awesome 6 Free";
+	background-color: #11111b;
 	padding-left: 15px;
 	padding-right: 15px;
 }
+.music {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.music-box {
+	margin-left: 10px;
+	margin-right: 10px;
+	//width: 300px;
+}
 
-.time {
+.time{	 
 	background-color: #ca9ee6;
 }
 .powermenu {
-	font-size: 70px;
+	font-size: 35px;
 	border-radius: 7px;
 }
-.shutdown, .reboot, .logout {
-	padding-left: 18px;
-	padding-right: 29px;
+.shutdown, .reboot, .logout, .lock {
+	padding-left: 15px;
+	margin-top: 7px;
+	margin-left: 7px;
+	margin-right: 7px;
+	margin-bottom: 7px;
+	padding-right: 20px;
 }
 .shutdown {
 	background-color: #f38ba8;
 }
 .reboot {
-	background-color: #a6e3a1;
+	background-color: #cba6f7;
 }
 .logout {
-	background-color: #74c7ec;
+	background-color: #89b4fa;
+}
+.lock {
+	background-color: #a6e3a1;
+	padding-right: 15px
 }
 .power {
 	background-color: #e78284;
-	padding-left: 14px;
-	padding-right: 17px;
+	padding-left: 12px;
+	padding-right: 12px;
 	font-size: 17px;
 }
 .battery {
@@ -86,6 +172,6 @@ button {
 .volume {
 	background-color: #8caaee;
 	padding-right: 15px;
-	padding-left: 12px;
+	padding-left: 15px;
 	}
 
