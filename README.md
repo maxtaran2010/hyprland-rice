@@ -2,7 +2,7 @@
 Catppuccin hyprland theme by maxtaran2010 (aka tmasik.t)
 ## Things that I use
 ### Apps
-`eww` `hyprland` `hyprpaper` `wofi` `hyprshot` `swaylock` `neovim` `kitty` `swaync`
+`eww` `hyprland` `hyprpaper` `rofi` `hyprshot` `swaylock` `neovim` `kitty` `swaync`
 ### Fonts
 `Nerd Fonts` `Belanosima` `Montserrat`
 ### Other things
